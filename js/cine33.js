@@ -1,8 +1,8 @@
 const getCine = async() => {
     const id = ( new URLSearchParams( window.location.search )).get('id')
-    const data  = await fetch( `https://patrickirv2.000webhostapp.com/cinestar_sweb_php/cines/${id}` )
-    const data2 = await fetch( `https://patrickirv2.000webhostapp.com/cinestar_sweb_php//cines/${id}/tarifas` )
-    const data3 = await fetch( `https://patrickirv2.000webhostapp.com/cinestar_sweb_php/cines/${id}/peliculas` )
+    const data  = await fetch( `https://oaemdl.es/cinestar_sweb_php/cines/${id}` )
+    const data2 = await fetch( `https://oaemdl.es/cinestar_sweb_php/cines/${id}/tarifas` )
+    const data3 = await fetch( `https://oaemdl.es/cinestar_sweb_php/cines/${id}/peliculas` )
      
     if ( data.status = 200 ){
     const cine = await data.json()
@@ -17,7 +17,7 @@ const getCine = async() => {
                       
                 
                 
-                <!-https://patrickirv2.000webhostapp.com/cinestar_sweb_php/cines/1/tarifas->
+                <!-https://oaemdl.es/cinestar_sweb_php/cines/1/tarifas->
                 <div class="tabla">
                     <div class="fila">
                         <div class="celda-titulo">${cine.DiasSemana}</div>
@@ -67,7 +67,7 @@ const getCine = async() => {
 
 
 
-            <!-https://patrickirv2.000webhostapp.com/cinestar_sweb_php/cines/1/peliculas->
+            <!-https://oaemdl.es/cinestar_sweb_php/cines/1/peliculas->
             <div class="cine-info peliculas">
                 <div class="tabla">
                     <div class="fila">
