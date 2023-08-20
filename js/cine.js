@@ -2,7 +2,7 @@ const getCine = async() => {
     const data  = await fetch( `https://oaemdl.es/cinestar_sweb_php/cines/${id}` )
     const data2 = await fetch( `https://oaemdl.es/cinestar_sweb_php/cines/${id}/tarifas` )
     const data3 = await fetch( `https://oaemdl.es/cinestar_sweb_php/cines/${id}/peliculas` )
-    //<!-Esta parte del codigo lleva los datos del primer fetch
+    //<!-Esta parte del codigo lleva los datos del primer fetch->
     `
     <h2>Cinestar Excelsior</h2>
         <div class="cine-info">
