@@ -1,29 +1,22 @@
 const getCine = async() => {
-    const id = ( new URLSearchParams( window.location.search )).get('id')
-    // const data  = await fetch( `https://patrickirv2.000webhostapp.com/cinestar_sweb_php/cines/${id}` )
-    //const data2 = await fetch( `https://patrickirv2.000webhostapp.com/cinestar_sweb_php//cines/${id}/tarifas` )
-    //const data3 = await fetch( `https://patrickirv2.000webhostapp.com/cinestar_sweb_php/cines/${id}/peliculas` )
-
-    const data = await fetch( `https://oaemdl.es/cinestar_sweb_php/cines/${id}`)
-    if ( data.status === 200 ){
-    const cine = await data.json()
-       let  html = `
-        <h2>${cine.RazonSocial}</h2>
+    const data  = await fetch( `https://oaemdl.es/cinestar_sweb_php/cines/${id}` )
+    const data2 = await fetch( `https://oaemdl.es/cinestar_sweb_php/cines/${id}/tarifas` )
+    const data3 = await fetch( `https://oaemdl.es/cinestar_sweb_php/cines/${id}/peliculas` )
+    //<!-Esta parte del codigo lleva los datos del primer fetch
+    `
+    <h2>Cinestar Excelsior</h2>
         <div class="cine-info">
             <div class="cine-info datos">
-                <p>${cine.Direccion} - ${cine.Detalle}</p>
-                <p>${cine.Telefonos}</p>
-                <br/>`
-                document.getElementById('contenido-interno').innerHTML = html;    
-    }                                                   
-    if ( data2.status === 200 ){
-        const tarifas = await data2.json()
-            tarifas.forEach(tarifa => {
-                html += `            
+                <p>Jirón de la Unión 780 - Lima</p>
+			    <p>Teléfono: 714-1865 anexo 865</p>
+                <br/>
+    `                   
+    //<!- Esta parte del codigo lleva los datos del segundo fetch->
+    `
                 <div class="tabla">
                     <div class="fila">
-                        <div class="celda-titulo">${tarifas.DiasSemana}</div>
-                        <div class="celda">${tarifas.Precio}</div>
+                    <div class="celda-titulo">Lunes y Miércoles</div>
+					<div class="celda">S/. 4.00</div>
                     </div>
                     <div class="fila impar">
                         <div class="celda-titulo">Martes</div>
@@ -61,14 +54,13 @@ const getCine = async() => {
             <img src="img/cine/1.2.jpg"/>
  
             <br/><br/><h4>Los horarios de cada función están sujetos a cambios sin previo aviso.</h4><br/>
-            ` 
-  
-    })
-    if ( data3.status === 200 ){
-        const peliculas = await data3.json()
-        peliculas.forEach(tarifa => {
-            html += `  
-            <!-https://patrickirv2.000webhostapp.com/cinestar_sweb_php/cines/1/peliculas->
+    `
+
+
+
+   
+    //<!- Esta parte del codigo lleva los datos del tercer fetch->
+    `
             <div class="cine-info peliculas">
                 <div class="tabla">
                     <div class="fila">
@@ -103,10 +95,7 @@ const getCine = async() => {
                 <br/><br/>
                 <b>CINESTAR</b>, siempre pensando en tí. 
             </span>		
-        </div>`
-    })            
-    document.getElementById('contenido-interno').innerHTML = html;
-}
-}
+        </div>
+        `
 }
 getCine()
