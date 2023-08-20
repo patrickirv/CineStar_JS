@@ -95,7 +95,8 @@ const getCine = async() => {
                 <br/><br/>
                 <b>CINESTAR</b>, siempre pensando en tí. 
             </span>		
-        </div>
-        `
-}
+        </div>`
+        
+        document.getElementById('contenido-interno').innerHTML = html;
+    }
 getCine()

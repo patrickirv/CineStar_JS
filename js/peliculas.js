@@ -1,6 +1,6 @@
 const getPeliculas = async() => {
 	const idx = ( new URLSearchParams( window.location.search )).get('idx')
-	const data = await fetch( `http://localhost/cinestar_sweb_php/peliculas/${idx}`)
+	const data = await fetch( `https://oaemdl.es/cinestar_sweb_php/peliculas/${idx}`)
 	
 	if ( data.status == 200 ) {
 		const peliculas = await data.json()
