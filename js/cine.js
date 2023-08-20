@@ -5,7 +5,6 @@ const getCine = async() => {
     //const data3 = await fetch( `https://patrickirv2.000webhostapp.com/cinestar_sweb_php/cines/${id}/peliculas` )
 
     const data = await fetch( `https://oaemdl.es/cinestar_sweb_php/cines/${id}`)
-     
     if ( data.status === 200 ){
     const cine = await data.json()
        let  html = `
