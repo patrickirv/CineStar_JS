@@ -3,11 +3,12 @@ const getPelicula = async() => {
 	const data = await fetch( `https://oaemdl.es/cinestar_sweb_php/peliculas/${id}`)
 
 	if ( data.status == 200 ) {
+		
 		const pelicula = await data.json();
 		let html = 	`
-					<br/><h1>Cartelera</h1><br/>
-					<div class="contenido-pelicula">
-						<div class="datos-pelicula">
+						<br/><h1>Cartelera</h1><br/>
+						<div class="contenido-pelicula">
+							<div class="datos-pelicula">
 							<h2>${pelicula.Titulo}</h2>
 							<p>${pelicula.Sinopsis}</p>
 							<br/>
@@ -32,14 +33,14 @@ const getPelicula = async() => {
 								<div class="celda-titulo">Reparto :</div>
 									<div class="celda">${pelicula.Reparto}</div>
 							</div>
+							</div>
 						</div>
-					</div>
-					<img src="img/pelicula/${pelicula.id}.jpg" width="160" height="226"><br/><br/>
-					<div class="pelicula-video">
+						<img src="img/pelicula/${pelicula.id}.jpg" width="160" height="226"><br/><br/>
+						<div class="pelicula-video">
 						<embed src="https://www.youtube.com/v/${pelicula.Link}" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="580" height="400">
-					</div>
+						</div>
 					`	
-	document.getElementById('contenido-interno').innerHTML = html
+		document.getElementById('contenido-interno').innerHTML = html
 	}
 }
 getPelicula()
